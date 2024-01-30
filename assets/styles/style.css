@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto&display=swap");
+
+* {
+    font-family: Poppins, 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+
+:root {
+    --green1: #E1F0DA;
+    --green2: #D4E7C5;
+    --green3: #BFD8AF;
+    --green4: #99BC85;
+    --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+    --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
+body {
+    background-color: var(--green1);
+    margin: 1rem 4rem;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 4rem;
+    font-size: 1.2rem;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.logo__name {
+    padding-left: 1.3rem;
+}
+
+.menu__btn {
+    border: none;
+    background-color: var(--green1);
+    font-size: 1rem;
+    margin: 1rem;
+}
+
+.active {
+    background-color: var(--green4);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+.hover {
+    opacity: 45%;
+}
+
+/*//////////////////////////*/
+.underNav {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 3rem;
+}
+
+.underNav__line1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.underNav__line1 span {
+    position: relative;
+}
+
+.underNav__line1 span::after {
+    /* display: block; */
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    transform: scale(1.07, 1.05) skewX(-15deg);
+    background-image: var(--gradient-primary);
+}
+
+.underNav__line2 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.underNav__learnmore-btn {
+    border: none;
+    background: none;
+    color: green;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    padding-left: 0rem;
+    border-bottom: solid green 1px;
+}
+
+.underNav__img {
+    width: 40%;
+    height: 55%;
+}
