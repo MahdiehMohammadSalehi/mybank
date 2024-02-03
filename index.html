@@ -10,18 +10,21 @@
 </head>
 
 <body>
-    <nav>
+
+    <nav class="navigator ">
         <div class="logo">
             <img src="img/icons8-bank-building-50.png" alt="logo">
             <span class="logo__name">MYBANK</span>
         </div>
-        <div class="menu">
-            <button class="menu__btn menu__btn-Features">Features</button>
-            <button class="menu__btn menu__btn-Operations">Operations</button>
-            <button class="menu__btn menu__btn-Testimonials">Testimonials</button>
-            <button class="menu__btn menu__btn-OpenAcc active">Open account</button>
-        </div>
+        <ul class="menu">
+            <li class="menu__btn menu__btn-Features">Features</li>
+            <li class="menu__btn menu__btn-Operations">Operations</li>
+            <li class="menu__btn menu__btn-Testimonials">Testimonials</li>
+            <li class="menu__btn menu__btn-OpenAcc active">Open account</li>
+        </ul>
+
     </nav>
+    <!-- ///////////////////////////main///////////////////////////// -->
     <main>
         <div class="underNav">
             <div>
@@ -31,10 +34,29 @@
                 <p class="underNav__line2">A simpler banking experience for a simpler life.</p>
                 <button class="underNav__learnmore-btn">Learn more ↓</button>
             </div>
-
             <img class="underNav__img" src="img/underNav.png" alt="underNav_IMG">
-
         </div>
+        <div class="feature">
+            <p class="feature__tag">FEATURES</p>
+            <p class="feature__explain">Everything you need in a modern bank<br> and more.</p>
+        </div>
+        <section class="feature__details">
+            <img src="img/digital.jpg" alt="digital" class="feature__details-img">
+            <div>
+                <!-- <img src="img/monitor-50.png" class="feature__details-svg"> -->
+                <svg class="feature__details-svg">
+                    <use xlink:href="img/monitor.svg"></use>
+                </svg>
+                <div class="feature__details-text">
+                    <h3 class="feature__details-h3">100% digital bank</h3>
+                    <p class="feature__details-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde alias
+                        sint
+                        quos? Accusantium a fugiat
+                        porro
+                        reiciendis saepe quibusdam debitis ducimus.</p>
+                </div>
+
+        </section>
     </main>
 </body>
 
