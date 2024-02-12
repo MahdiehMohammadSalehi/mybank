@@ -17,10 +17,10 @@
             <span class="logo__name">MYBANK</span>
         </div>
         <ul class="menu">
-            <li class="menu__btn menu__btn-Features">Features</li>
-            <li class="menu__btn menu__btn-Operations">Operations</li>
-            <li class="menu__btn menu__btn-Testimonials">Testimonials</li>
-            <li class="menu__btn menu__btn-OpenAcc active">Open account</li>
+            <li class="menu__btn menu__btn-Features"> <a class="link" href="">Features</a></li>
+            <li class="menu__btn menu__btn-Operations"> <a class="link" href="">Operations</a></li>
+            <li class="menu__btn menu__btn-Testimonials"> <a class="link" href="">Testimonials</a></li>
+            <li class="menu__btn menu__btn-OpenAcc active open__modal"> <a class="link" href="#">Open account</a></li>
         </ul>
 
     </nav>
@@ -190,7 +190,7 @@
         <section class="open__account">
             <h1 class="open__account-header">The best day to join Bankist was one <br>year ago. The second best is
                 today!</h1>
-            <button class="open__account-btn">Open your free account today!</button>
+            <button class="open__account-btn open__modal">Open your free account today!</button>
 
         </section>
     </main>
@@ -213,7 +213,7 @@
             as your own product.
         </p>
     </footer>
-    <div class="popup__openaccount">
+    <div class="popup__openaccount hidden">
         <button class="popup__openaccount-closebtn">&#10006;</button>
         <h2 class="popup__openaccount-tiltle">Open your bank account <br> just in <span>5 minutes</span></h2>
         <form class="popup__openaccount-form">
@@ -226,7 +226,7 @@
             <button class="popup__openaccount-nextbtn">Next step →</button>
         </form>
     </div>
-    <div class="overlay"></div>
+    <div class="overlay hidden"></div>
 </body>
 
 </html>

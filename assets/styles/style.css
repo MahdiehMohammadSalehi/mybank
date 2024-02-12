@@ -33,6 +33,7 @@ body {
     width: 100%;
     height: 5rem;
     padding: 0 8rem;
+
 }
 
 .sticky {
@@ -56,6 +57,7 @@ body {
 .menu {
     display: flex;
     justify-content: space-between;
+    list-style: none;
 }
 
 .menu__btn {
@@ -63,9 +65,17 @@ body {
     background-color: transparent;
     font-size: 1rem;
     margin: 1rem;
-    list-style: none;
     text-align: center;
     padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link:visited {
+    color: inherit;
 }
 
 .active {
@@ -126,6 +136,7 @@ body {
     margin-top: 1.5rem;
     padding-left: 0rem;
     border-bottom: solid green 1px;
+    cursor: pointer;
 }
 
 .underNav__img {
@@ -211,7 +222,7 @@ body {
     font-size: 1rem;
     border: none;
     z-index: 1;
-
+    cursor: pointer;
 }
 
 .transfer_btn {
@@ -242,10 +253,17 @@ body {
     box-shadow:
         rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     transition: all 0.5s;
+    cursor: pointer;
 }
 
 .hidden {
+    visibility: hidden;
     opacity: 0;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 100;
 }
 
 .operation_details-text-h2 {
@@ -387,6 +405,7 @@ body {
     /* top: 9%; */
     left: 6%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .btn_right {
@@ -394,6 +413,7 @@ body {
     top: 9rem; */
     right: 6%;
     transform: translate(50%, -50%);
+    cursor: pointer;
 }
 
 
@@ -489,8 +509,7 @@ footer {
     transform: translate(-50%, -50%);
     z-index: 10;
     padding: 3rem;
-    transition: all 1s;
-    opacity: 0;
+    transition: all 0.5s;
 }
 
 .popup__openaccount-closebtn {
@@ -500,6 +519,8 @@ footer {
     background-color: transparent;
     border: none;
     font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.7;
 }
 
 .popup__openaccount-tiltle {
@@ -554,6 +575,7 @@ footer {
     background-color: var(--green4);
     font-size: 1rem;
     padding: 1rem;
+    cursor: pointer;
 }
 
 .overlay {
@@ -565,5 +587,4 @@ footer {
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
     z-index: 9;
-    opacity: 0;
 }
