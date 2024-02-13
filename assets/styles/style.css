@@ -23,7 +23,12 @@ body {
     min-height: 100%;
 }
 
-
+.cookies {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--green3);
+    align-items: center;
+}
 
 .navigator {
     display: flex;
