@@ -17,9 +17,9 @@
                 <span class="logo__name">MYBANK</span>
             </div>
             <ul class="menu">
-                <li class="menu__btn menu__btn-Features"> <a class="link" href="">Features</a></li>
-                <li class="menu__btn menu__btn-Operations"> <a class="link" href="">Operations</a></li>
-                <li class="menu__btn menu__btn-Testimonials"> <a class="link" href="">Testimonials</a></li>
+                <li class="menu__btn menu__btn-Features"> <a class="link" href="#section__1">Features</a></li>
+                <li class="menu__btn menu__btn-Operations"> <a class="link" href="#section__2">Operations</a></li>
+                <li class="menu__btn menu__btn-Testimonials"> <a class="link" href="#section__3">Testimonials</a></li>
                 <li class="menu__btn menu__btn-OpenAcc active open__modal"> <a class="link" href="#">Open account</a>
                 </li>
             </ul>
@@ -37,7 +37,7 @@
             </div>
             <img class="underNav__img" src="img/underNav.png" alt="underNav_IMG">
         </div>
-        <div class="feature">
+        <div class="feature" id="section__1">
             <p class="tag">FEATURES</p>
             <p class="explaination">Everything you need in a modern bank<br> and more.</p>
         </div>
@@ -83,21 +83,22 @@
         </section>
         <!-- ///////////////////////////////operation////////////////////// -->
 
-        <div class="operation">
+        <div class="operation" id="section__2">
             <p class="tag">Operation</p>
             <p class="explaination">Everything as simple as possible, but no simpler.</h3>
         </div>
         <section class="operation__details">
             <div class="operation__details-tabs">
-                <button class="operation__details-btns transfer_btn selected_btn">01 Instant Transfers</button>
-                <button class="operation__details-btns loan_btn">02 Instant Loans</button>
-                <button class="operation__details-btns close_btn">03 Instant Closing</button>
+                <button class="operation__details-tab transfer_btn selected_btn">01 Instant Transfers</button>
+                <button class="operation__details-tab loan_btn">02 Instant Loans</button>
+                <button class="operation__details-tab close_btn">03 Instant Closing</button>
             </div>
-            <div class="operation_details-text">
+
+            <div class="operation_details-text ">
                 <svg></svg>
                 <div class="operation_details-text-div ">
-                    <h2 class="operation_details-text-h2">Tranfser money to anyone, instantly! No fees, no BS.</h2>
-                    <p class="operation_details-text-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    <h2 class="operation_details-header">Tranfser money to anyone, instantly! No fees, no BS.</h2>
+                    <p class="operation_details-explaination">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                         eiusmod tempor incididunt ut
                         labore
                         et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -105,12 +106,12 @@
                         aliquip ex ea commodo consequat.</p>
                 </div>
             </div>
-            <!-- <div class="operation_details-text loan hidden">
+            <div class="operation_details-text loan hidden ">
                 <svg></svg>
-                <div>
-                    <h2 class="operation_details-text-h2">Buy a home or make your dreams come true, with instant loans.
+                <div class="operation_details-text-div">
+                    <h2 class="operation_details-header">Buy a home or make your dreams come true, with instant loans.
                     </h2>
-                    <p class="operation_details-text-p">Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    <p class="operation_details-explaination">Duis aute irure dolor in reprehenderit in voluptate velit esse
                         cillum dolore eu fugiat nulla
                         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                         mollit anim id est laborum.</p>
@@ -119,17 +120,17 @@
             <div class="operation_details-text close hidden">
                 <svg></svg>
                 <div>
-                    <h2 class="operation_details-text-h2">No longer need your account? No problem! Close it instantly.
+                    <h2 class="operation_details-header">No longer need your account? No problem! Close it instantly.
                     </h2>
-                    <p class="operation_details-text-p">Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                    <p class="operation_details-explaination">Excepteur sint occaecat cupidatat non proident, sunt in culpa
                         qui officia deserunt mollit anim id
                         est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                         ex ea commodo consequat.</p>
                 </div>
-            </div> -->
+            </div>
 
         </section>
-        <div class="sure">
+        <div class="sure" id="section__3">
             <p class="tag">NOT SURE YET?</p>
             <p class="explaination">Millions of Bankists are already making their lifes simpler.</h3>
         </div>
