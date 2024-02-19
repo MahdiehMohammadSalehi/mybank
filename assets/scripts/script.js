@@ -7,6 +7,8 @@ const modal = document.querySelector(".popup__openaccount");
 const modalCloseBtn = document.querySelector(".popup__openaccount-closebtn");
 const openModal = document.querySelectorAll(".open__modal");
 const header = document.querySelector(".header");
+const learnMore = document.querySelector(".underNav__learnmore-btn");
+const section1 = document.getElementById("section_1");
 
 // --------------------------------functions-------------------------
 
@@ -26,6 +28,9 @@ addEventListener("keydown", function (e) {
     if (e.key == 'Escape') toggleVisibilty();
 });
 
+
+// --------------------------coookies-----------------------
+/*
 const message = document.createElement('div');
 message.classList.add('cookies');
 message.innerHTML = 'we used cookied for improved functionality and analytics.<button class="menu__btn active btn__close-cookies">Got it</button>';
@@ -36,4 +41,17 @@ document.querySelector(".btn__close-cookies").addEventListener("click", function
     // message.remove();
     // header.removeChild(message);
     message.parentElement.removeChild(message);
+})*/
+
+
+
+// --------------------------------------scrolling---------------------------------
+
+learnMore.addEventListener("click", function (e) {
+    console.log(e.target.getBoundingClientRect());
 })
+
+
+
+
+
