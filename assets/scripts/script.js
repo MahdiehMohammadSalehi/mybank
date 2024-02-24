@@ -12,7 +12,9 @@ const section1 = document.getElementById("section__1");
 const tabsContainer = document.querySelector(".operation__details-tabs");
 const tabs = document.querySelectorAll(".operation__details-tab");
 const operationTexts = document.querySelectorAll(".operation_details-text");
-const nav=document.querySelector(".navigator");
+const underNav = document.querySelector(".underNav");
+const sections = document.querySelectorAll(".section");
+const nav = document.querySelector(".navigator");
 
 // --------------------------------functions-------------------------
 
@@ -94,18 +96,56 @@ tabsContainer.addEventListener("click", function (e) {
 
 })
 
+//--------------------------------- sticky nav -----------------------------------
+
+const navHeight = getComputedStyle(header).height;
+// const navHeight = header.getBoundingClientRect().height;
+
+const sticky = function (entries) {
+    const { isIntersecting } = entries[0];
+    if (!isIntersecting)
+        header.classList.add("sticky")
+    else
+        header.classList.remove("sticky")
+}
+const headerObserver = new IntersectionObserver(sticky, {
+    root: null,
+    threshold: 0,
+    rootMargin: `-${navHeight}`
+})
+
+headerObserver.observe(underNav);
+
+//------------------------------ sections reveal -------------------------------------
+
+const sectionReveal = function (entries) {
+    const [enrty] = entries;
+    if (!enrty.isIntersecting) return;
+    enrty.target.classList.remove("section__hidden")
+}
+
+const sectionObserver = new IntersectionObserver(
+    sectionReveal, {
+    threshold: 0.1,
+});
+
+sections.forEach(function (section) {
+    section.classList.add("section__hidden");
+    sectionObserver.observe(section);
+
+}
+);
 // ---------------------------------- fade in/out nav ---------------------------------------------
-const handleHover=function(e){
-     
-    if(e.target.classList.contains("link")){
-        const link=e.target;      
-        const siblings=link.closest(".navigator").querySelectorAll(".link");      
-        const logo=link.closest(".navigator").querySelector(".logo");
-        siblings.forEach(el=>{
-            if(el!==link)
-            el.style.opacity=this;
+const handleHover = function (e) {
+    if (e.target.classList.contains("link")) {
+        const link = e.target;
+        const siblings = link.closest(".navigator").querySelectorAll(".link");
+        const logo = link.closest(".navigator").querySelector(".logo");
+        siblings.forEach(el => {
+            if (el !== link)
+                el.style.opacity = this;
         })
-       logo.style.opacity=this;
+        logo.style.opacity = this;
     }
 }
 
