@@ -96,6 +96,7 @@ tabsContainer.addEventListener("click", function (e) {
 
 // ---------------------------------- fade in/out nav ---------------------------------------------
 const handleHover=function(e){
+     
     if(e.target.classList.contains("link")){
         const link=e.target;      
         const siblings=link.closest(".navigator").querySelectorAll(".link");      
@@ -109,5 +110,4 @@ const handleHover=function(e){
 }
 
 nav.addEventListener("mouseover",handleHover.bind(0.5))
-
 nav.addEventListener("mouseout",handleHover.bind(1))
