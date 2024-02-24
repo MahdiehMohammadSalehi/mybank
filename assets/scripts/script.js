@@ -15,6 +15,11 @@ const operationTexts = document.querySelectorAll(".operation_details-text");
 const underNav = document.querySelector(".underNav");
 const sections = document.querySelectorAll(".section");
 const nav = document.querySelector(".navigator");
+// const img=document.querySelectorAll(".feature__details-img");
+const images=document.querySelectorAll("img[data-src]");
+const slides=document.querySelectorAll(".slide");
+const btnLeft=document.querySelector(".btn_left");
+const btnRight=document.querySelector(".btn_right");
 
 // --------------------------------functions-------------------------
 
@@ -96,7 +101,25 @@ tabsContainer.addEventListener("click", function (e) {
 
 })
 
+// ---------------------------------- fade in/out nav ---------------------------------------------
+const handleHover = function (e) {
+    if (e.target.classList.contains("link")) {
+        const link = e.target;
+        const siblings = link.closest(".navigator").querySelectorAll(".link");
+        const logo = link.closest(".navigator").querySelector(".logo");
+        siblings.forEach(el => {
+            if (el !== link)
+                el.style.opacity = this;
+        })
+        logo.style.opacity = this;
+    }
+}
+
+nav.addEventListener("mouseover",handleHover.bind(0.5))
+nav.addEventListener("mouseout",handleHover.bind(1))
+
 //--------------------------------- sticky nav -----------------------------------
+//scroll equal more than threshold cause isIntersecting changed to True
 
 const navHeight = getComputedStyle(header).height;
 // const navHeight = header.getBoundingClientRect().height;
@@ -118,10 +141,12 @@ headerObserver.observe(underNav);
 
 //------------------------------ sections reveal -------------------------------------
 
-const sectionReveal = function (entries) {
-    const [enrty] = entries;
-    if (!enrty.isIntersecting) return;
-    enrty.target.classList.remove("section__hidden")
+const sectionReveal = function (entries,observer) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
+    entry.target.classList.remove("section__hidden")
+    
+observer.unobserve(entry.target);
 }
 
 const sectionObserver = new IntersectionObserver(
@@ -135,19 +160,30 @@ sections.forEach(function (section) {
 
 }
 );
-// ---------------------------------- fade in/out nav ---------------------------------------------
-const handleHover = function (e) {
-    if (e.target.classList.contains("link")) {
-        const link = e.target;
-        const siblings = link.closest(".navigator").querySelectorAll(".link");
-        const logo = link.closest(".navigator").querySelector(".logo");
-        siblings.forEach(el => {
-            if (el !== link)
-                el.style.opacity = this;
-        })
-        logo.style.opacity = this;
-    }
+
+//------------------------------ image reveal -------------------------------------
+//try to load image befor it reaches(client dont notice) in order to have high performance in low slow network.
+
+const imgReveal=function(entries,observer){
+
+    const [entry]=entries;
+    if(!entry.isIntersecting) return;
+
+    entry.target.src=entry.target.dataset.src;
+    entry.target.addEventListener("load",function(){
+    entry.target.classList.remove("lazy-img");
+})
+
+observer.unobserve(entry.target);
 }
 
-nav.addEventListener("mouseover",handleHover.bind(0.5))
-nav.addEventListener("mouseout",handleHover.bind(1))
+const imgObserver=new IntersectionObserver(imgReveal,{
+    threshold:0,
+    rootMargin:'200px',
+})
+
+images.forEach(i=>imgObserver.observe(i))
+
+//------------------------------ slider -------------------------------------
+
+ slides.forEach((s,i)=> s.style.transform=`translateX(${i*100}%)`);
