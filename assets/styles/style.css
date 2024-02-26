@@ -48,10 +48,12 @@ body {
     z-index: 20;
     width: 100%;
 }
-.fade{
+
+.fade {
     /* color: rgba(0, 0, 0, 0.35); */
     opacity: 0.5;
 }
+
 .logo {
     display: flex;
     flex-direction: row;
@@ -195,13 +197,13 @@ body {
     grid-gap: 2rem;
 }
 
-.lazy-img{
-filter: blur(20px);
+.lazy-img {
+    filter: blur(40px);
 }
 
 .feature__details-img {
     width: 100%;
-    
+
 }
 
 .grid-column1 {

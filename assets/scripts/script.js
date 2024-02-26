@@ -20,6 +20,7 @@ const images = document.querySelectorAll("img[data-src]");
 const slides = document.querySelectorAll(".slide");
 const btnLeft = document.querySelector(".btn_left");
 const btnRight = document.querySelector(".btn_right");
+const dotsContainer = document.querySelector(".circle_btns");
 
 // --------------------------------functions-------------------------
 
@@ -177,7 +178,56 @@ const imgReveal = function (entries, observer) {
     observer.unobserve(entry.target);
 }
 
-// nav.addEventListener("mouseover", handleHover.bind(0.5))
-// {
-//  });
-//  btnLeft.addEventListener("click");
+const imgObserver = new IntersectionObserver(imgReveal, {
+    threshold: 0,
+    // rootMargin: "300px"
+})
+images.forEach(i => imgObserver.observe(i))
+
+//------------------------------ slider -------------------------------------
+
+let curSlide = 0;
+const slideNum = slides.length - 1;
+
+const goToSlide = function (slide) {
+    slides.forEach((s, i) => s.style.transform = `translateX(${100 * (i - slide)}%)`);
+}
+
+const nextSlide = function () {
+    curSlide === slideNum ? curSlide = 0 : curSlide++;
+    gotoSlide(curSlide);
+}
+
+const prevSlide = function () {
+    curSlide == 0 ? curSlide = slideNum : curSlide--;
+    gotoSlide(curSlide);
+}
+
+goToSlide(0);
+btnRight.addEventListener("click", nextSlide)
+btnLeft.addEventListener("click", prevSlide)
+
+//------------------------------left and right key press slider ----------------------
+
+document.addEventListener("keydown", function (e) {
+    e.key === "ArrowRight" && nextSlide();
+    e.key === 'ArrowLeft' && prevSlide();
+})
+
+//------------------------------circle btns slider ----------------------
+
+const addDots = function () {
+    slides.forEach((_, i) => dotsContainer.insertAdjacentHTML('beforeend', `<button class="circle_btn"  data-slide=${i}></button>`))
+}
+//event delegation for dots
+dotsContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("circle_btn")) {
+        const { slide } = e.target.dataset;
+        goToSlide(slide)
+    }
+})
+const init = function () {
+    addDots()
+}
+
+init();
