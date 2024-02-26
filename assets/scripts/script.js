@@ -15,6 +15,7 @@ const operationTexts = document.querySelectorAll(".operation_details-text");
 const underNav = document.querySelector(".underNav");
 const sections = document.querySelectorAll(".section");
 const nav = document.querySelector(".navigator");
+const images = document.querySelectorAll("img[data-src]");
 
 // --------------------------------functions-------------------------
 
@@ -153,3 +154,15 @@ sections.forEach(function (section) {
 
 }
 );
+
+//------------------------------ Images reveal -------------------------------------
+
+const imageReveal = function (entries, observer) {
+    const [enrty] = entries;
+    if (enrty.isIntersecting)
+}
+const imageObserver = new IntersectionObserver(imageReveal, {
+    threshold: 0,
+    rootMargin: '300px',
+})
+images.forEach(image => imageObserver.observe(image))
