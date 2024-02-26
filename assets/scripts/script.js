@@ -177,18 +177,7 @@ const imgReveal=function(entries,observer){
 observer.unobserve(entry.target);
 }
 
-const imgObserver=new IntersectionObserver(imgReveal,{
-    threshold:0,
-    rootMargin:'200px',
-})
-
-images.forEach(i=>imgObserver.observe(i))
-
-//------------------------------ slider -------------------------------------
-
- slides.forEach((s,i)=> s.style.transform=`translateX(${i*100}%)`);
- 
- btnRight.addEventListener("click",function(){
-
- });
+// nav.addEventListener("mouseover", handleHover.bind(0.5))
+// {
+//  });
 //  btnLeft.addEventListener("click");
