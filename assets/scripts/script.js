@@ -187,3 +187,8 @@ images.forEach(i=>imgObserver.observe(i))
 //------------------------------ slider -------------------------------------
 
  slides.forEach((s,i)=> s.style.transform=`translateX(${i*100}%)`);
+ 
+ btnRight.addEventListener("click",function(){
+
+ });
+//  btnLeft.addEventListener("click");

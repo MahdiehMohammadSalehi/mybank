@@ -293,10 +293,7 @@ filter: blur(20px);
     opacity: 0;
 }
 
-/* .visible {
-    visibility: visible;
-    opacity: 100;
-} */
+
 
 .operation_details-header {
     margin-top: 5rem;
