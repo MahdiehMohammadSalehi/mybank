@@ -15,7 +15,11 @@ const operationTexts = document.querySelectorAll(".operation_details-text");
 const underNav = document.querySelector(".underNav");
 const sections = document.querySelectorAll(".section");
 const nav = document.querySelector(".navigator");
+// const img=document.querySelectorAll(".feature__details-img");
 const images = document.querySelectorAll("img[data-src]");
+const slides = document.querySelectorAll(".slide");
+const btnLeft = document.querySelector(".btn_left");
+const btnRight = document.querySelector(".btn_right");
 
 // --------------------------------functions-------------------------
 
@@ -112,10 +116,10 @@ const handleHover = function (e) {
 }
 
 nav.addEventListener("mouseover", handleHover.bind(0.5))
-
 nav.addEventListener("mouseout", handleHover.bind(1))
 
 //--------------------------------- sticky nav -----------------------------------
+//scroll equal more than threshold cause isIntersecting changed to True
 
 const navHeight = getComputedStyle(header).height;
 // const navHeight = header.getBoundingClientRect().height;
@@ -137,10 +141,12 @@ headerObserver.observe(underNav);
 
 //------------------------------ sections reveal -------------------------------------
 
-const sectionReveal = function (entries) {
-    const [enrty] = entries;
-    if (!enrty.isIntersecting) return;
-    enrty.target.classList.remove("section__hidden")
+const sectionReveal = function (entries, observer) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
+    entry.target.classList.remove("section__hidden")
+
+    observer.unobserve(entry.target);
 }
 
 const sectionObserver = new IntersectionObserver(
@@ -155,14 +161,23 @@ sections.forEach(function (section) {
 }
 );
 
-//------------------------------ Images reveal -------------------------------------
+//------------------------------ image reveal -------------------------------------
+//try to load image befor it reaches(client dont notice) in order to have high performance in low slow network.
 
-const imageReveal = function (entries, observer) {
-    const [enrty] = entries;
-    if (enrty.isIntersecting)
+const imgReveal = function (entries, observer) {
+
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
+
+    entry.target.src = entry.target.dataset.src;
+    entry.target.addEventListener("load", function () {
+        entry.target.classList.remove("lazy-img");
+    })
+
+    observer.unobserve(entry.target);
 }
-const imageObserver = new IntersectionObserver(imageReveal, {
-    threshold: 0,
-    rootMargin: '300px',
-})
-images.forEach(image => imageObserver.observe(image))
+
+// nav.addEventListener("mouseover", handleHover.bind(0.5))
+// {
+//  });
+//  btnLeft.addEventListener("click");
