@@ -21,6 +21,7 @@ const slides = document.querySelectorAll(".slide");
 const btnLeft = document.querySelector(".btn_left");
 const btnRight = document.querySelector(".btn_right");
 const dotsContainer = document.querySelector(".circle_btns");
+const dots=document.querySelectorAll(".circle_btn");
 
 // --------------------------------functions-------------------------
 
@@ -186,8 +187,17 @@ images.forEach(i => imgObserver.observe(i))
 
 //------------------------------ slider -------------------------------------
 
+const slider=function(){
 let curSlide = 0;
 const slideNum = slides.length - 1;
+
+const activeDotBtn=function(slide){
+    document.querySelectorAll(".circle_btn").forEach((dot)=>{
+        dot.classList.remove("circle_btn_active")
+      
+     });
+     document.querySelector(`.circle_btn[data-slide="${slide}"]`).classList.add("circle_btn_active")
+}
 
 const goToSlide = function (slide) {
     slides.forEach((s, i) => s.style.transform = `translateX(${100 * (i - slide)}%)`);
@@ -195,15 +205,17 @@ const goToSlide = function (slide) {
 
 const nextSlide = function () {
     curSlide === slideNum ? curSlide = 0 : curSlide++;
-    gotoSlide(curSlide);
+    goToSlide(curSlide);
+    activeDotBtn(curSlide);
 }
 
 const prevSlide = function () {
     curSlide == 0 ? curSlide = slideNum : curSlide--;
-    gotoSlide(curSlide);
+    goToSlide(curSlide);
+    activeDotBtn(curSlide);
 }
 
-goToSlide(0);
+
 btnRight.addEventListener("click", nextSlide)
 btnLeft.addEventListener("click", prevSlide)
 
@@ -217,17 +229,27 @@ document.addEventListener("keydown", function (e) {
 //------------------------------circle btns slider ----------------------
 
 const addDots = function () {
-    slides.forEach((_, i) => dotsContainer.insertAdjacentHTML('beforeend', `<button class="circle_btn"  data-slide=${i}></button>`))
+    slides.forEach((_, i) => dotsContainer.insertAdjacentHTML('beforeend',
+     `<button class="circle_btn"  data-slide=${i}></button>`))
 }
+
+
 //event delegation for dots
 dotsContainer.addEventListener("click", function (e) {
     if (e.target.classList.contains("circle_btn")) {
+        // const  slide  = e.target.dataset.slide;
         const { slide } = e.target.dataset;
-        goToSlide(slide)
+        goToSlide(slide);
+        activeDotBtn(slide);
     }
 })
+
 const init = function () {
-    addDots()
+    goToSlide(0);
+    addDots();
+    activeDotBtn(0);
 }
 
 init();
+}
+slider();
